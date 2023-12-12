@@ -1,0 +1,208 @@
+import java.util.Scanner;
+
+public class Calculater {
+
+    public static void main(String[] args) {
+
+        int again;
+
+        //calculator printing
+        System.out.printf("%-14s %-14s %-14s %-14s\n",
+                "|Addition(1)|", "|Subtraction(2)|", "|Multiplication(3)|", "|Division (4)|");
+        System.out.printf("%-14s %-14s %-14s %-14s\n",
+                "|Modulus (5)|", "|Power      (6)|", "|SquareRoot    (7)|", "|Factorial(8)|");
+        System.out.printf("%-14s %-14s %-14s %-14s\n",
+                "|Log     (9)|", "|Sine      (10)|", "|AbsoluteValue(11)|", "|Avrage  (12)|");
+        System.out.printf("%-7d %-7d %-7d %-7d %-10s\n", 1, 2, 3, 4, "|+|");
+        System.out.printf("%-7d %-7d %-7d %-7d %-10s\n", 5, 6, 7, 8, "|-|");
+        System.out.printf("%-7d %-7d %-7s %-7s %-10s\n", 9, 0, ".", "|=|", "|*|");
+
+        //do while loop
+        do {
+            Scanner input = new Scanner(System.in);
+            System.out.print("choose the operation number ");
+            int opNum = input.nextInt();
+            switch (opNum) {
+                case 1: {
+                    System.out.print("Enter the first number ");
+                    double num1 = input.nextDouble();
+                    System.out.print("Enter the second number ");
+                    double num2 = input.nextDouble();
+                    System.out.println(num1 + " + " + num2 + " = " + sum(num1, num2));
+                }
+                break;
+                case 2: {
+                    System.out.print("Enter the first number ");
+                    double num1 = input.nextDouble();
+                    System.out.print("Enter the second number ");
+                    double num2 = input.nextDouble();
+                    System.out.println(num1 + " - " + num2 + " = " + sub(num1, num2));
+                }
+                break;
+                case 3: {
+                    System.out.print("Enter the first number ");
+                    double num1 = input.nextDouble();
+                    System.out.print("Enter the second number ");
+                    double num2 = input.nextDouble();
+                    System.out.println(num1 + " * " + num2 + " = " + mult(num1, num2));
+                }
+                break;
+                case 4: {
+                    System.out.print("Enter the first number ");
+                    double num1 = input.nextDouble();
+                    System.out.print("Enter the second number ");
+                    double num2 = input.nextDouble();
+                    System.out.println(num1 + " / " + num2 + " = " + div(num1, num2));
+                }
+                break;
+                case 5: {
+                    System.out.print("Enter the first number ");
+                    int a = input.nextInt();
+                    System.out.print("Enter the second number ");
+                    int b = input.nextInt();
+                    System.out.println(a + " % " + b + " = " + modulus(a, b));
+                }
+                break;
+                case 6: {
+                    System.out.print("Enter the first number: ");
+                    double a = input.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    double b = input.nextDouble();
+                    System.out.println(a + "pow" + b + " = " + pow(a, b));
+
+                }
+                break;
+                case 7: {
+                    System.out.print("Enter the number: ");
+                    double n = input.nextDouble();
+                    System.out.println("sqrt" + n + " = " + sqrt(n));
+                }
+                ;
+                break;
+                case 8: {
+                    System.out.print("Enter a  positive integer: ");
+                    int num = input.nextInt();
+                    System.out.println("The factorial of " + num + " is: " + fact(num));
+                }
+                ;
+                break;
+                case 9: {
+                    System.out.print("Enter the number ");
+                    double n = input.nextDouble();
+                    System.out.println("log" + n + " = " + log(n));
+                }
+                ;
+                break;
+                case 10: {
+                    System.out.print("Enter the number in radians ");
+                    double numb = input.nextDouble();
+                    System.out.println("sin" + numb + " = " + sin(numb));
+
+                }
+                ;
+                break;
+                case 11: {
+                    System.out.print("Enter the number ");
+                    double x = input.nextDouble();
+                    System.out.println("absolute " + x + " = " + absolute(x));
+                }
+                ;
+                break;
+                case 12: {
+                    System.out.print("Enter the number of items: ");
+                    int nums = input.nextInt();
+                    double[] values = new double[nums];
+                    double total = 0;
+
+                    System.out.print("Enter the numbers: ");
+                    for (int i = 0; i < nums; i++) {
+                        values[i] = input.nextDouble();
+                        total += values[i];
+                    }
+                    System.out.println("The avrage of the set is: " + avg(total, nums));
+                }
+                ;
+                break;
+                default:
+                    System.out.println("none exsisting operator");
+            }
+            System.out.println("Do you want another operatin (1 if yes)? ");
+            again = input.nextInt();
+        } while (again == 1);
+    }
+
+//*1 Addition method
+    static double sum(double num1, double num2) {
+        double sum = (num1 + num2);
+        return sum;
+    }
+
+//*2 Subtarction method
+    static double sub(double num1, double num2) {
+        double sub = (num1 - num2);
+        return sub;
+    }
+//*3 Multiplcation method
+
+    static double mult(double num1, double num2) {
+        double mult = (num1 * num2);
+        return mult;
+    }
+
+//*4Division method
+    static double div(double num1, double num2) {
+        double div = (num1 / num2);
+        return div;
+    }
+
+//5*Mod method
+    static int modulus(int a, int b) {
+        return (a % b);
+    }
+
+//6*Power method
+    static double pow(double a, double b) {
+        return (Math.pow(a, b));
+    }
+
+//7*Square root method
+    static double sqrt(double a) {
+        return (Math.sqrt(a));
+    }
+
+//8*Factorial method
+    static int fact(int x) {
+        int i = 1;
+        int num = 1;
+        while (i <= x) {
+            num *= i;
+            i++;
+        }
+        return num;
+    }
+
+//9*Log method
+    static double log(double n) {
+        return (Math.log(n));
+    }
+
+//10*Sin method
+    static double sin(double a) {
+
+        return (Math.sin(a));
+    }
+
+//11*Apsolute value method
+    static double absolute(double x) {
+        return (Math.abs(x));
+    }
+
+//12* Avrage method
+    static double avg(double tot, int len) {
+
+        double total = tot;
+        int length = len;
+
+        return total / length;
+    }
+}
